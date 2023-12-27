@@ -1,0 +1,51 @@
+<aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p><%= __('sidebar.follow') %>:</p>
+        <ul class="social-links">
+            <% for (var i in theme.customize.social_links) { %>
+                <% if (theme.customize.social_links[i]) { %>
+                <li>
+                    <a class="social-tooltip" title="<%= i %>" href="<%- url_for(theme.customize.social_links[i]) %>" target="_blank" rel="noopener">
+                        <i class="icon fa fa-<%= i %>"></i>
+                    </a>
+                </li>
+                <% } %>
+            <% } %>
+        </ul>
+    </div>
+    <% if (is_post()) { %>
+        <%- partial('post/nav', {post: page}) %>
+    <% } %>
+    <div class="widgets-container">
+        <% if (theme.widgets) { %>
+            <% theme.widgets.forEach(function(widget) { %>
+                <%- partial('widget/' + widget, {post: page}) %>
+            <% }) %>
+        <% } %>
+    </div>
+    <div style="padding:30px 30px 20px;font-size: 15px;text-align: center;color: #777777;" id="days"></div>
+    <script language="javascript">
+        function show_date_time() {
+        window.setTimeout("show_date_time()", 1000);
+        BirthDay = new Date("01/08/2022 12:00:00");
+        today = new Date();
+        timeold = (today.getTime() - BirthDay.getTime());
+        sectimeold = timeold / 1000; secondsold = Math.floor(sectimeold);
+        msPerDay = 24 * 60 * 60 * 1000; e_daysold = timeold / msPerDay; daysold = Math.floor(e_daysold);
+        e_hrsold = (e_daysold - daysold) * 24;
+        hrsold = setzero(Math.floor(e_hrsold));
+        e_minsold = (e_hrsold - hrsold) * 60;
+        minsold = setzero(Math.floor((e_hrsold - hrsold) * 60));
+        seconds = setzero(Math.floor((e_minsold - minsold) * 60));
+        document.getElementById('days').innerHTML = "本站已经运行了" + daysold + "天" + hrsold + "时" + minsold + "分" + seconds + "秒啦！";
+    }
+        function setzero(i) {
+            if (i < 10) {
+                i = "0" + i
+            };
+            return i;
+        }
+        show_date_time();
+    </script>
+</aside>
