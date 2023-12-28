@@ -9,14 +9,12 @@ description: ''
 keywords:
 author: Tiansu HU
 language: zh-CN
-timezone: 'Asia/Shanghai'
-
+timezone: ''
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
 url: https://hutian.su
 permalink: :year/:month/:day/:title/
-
 permalink_defaults:
 pretty_urls:
   trailing_index: true # Set to false to remove trailing 'index.html' from permalinks
@@ -100,126 +98,3 @@ ignore:
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
 theme: hueman
-
-# Menus
-menu:
-  Home: /
-  Categories:
-  About: /about/index.html
-
-# Customize
-customize:
-  logo:
-    width: 165
-    height: 60
-    url: images/logo-header.png
-  theme_color: '#006bde'
-  highlight: androidstudio
-  sidebar: left
-  thumbnail: true
-  favicon: images/favicon.png
-  social_links:
-    twitter: /
-    facebook: /
-    stack-overflow: /
-    github: https://github.com/ppoffice/hexo-theme-hueman
-    weibo: /
-    rss: /
-
-# Widgets
-widgets:
-  - catalog
-  - recent_posts
-  - category
-  - archive
-  - tag
-  - tagcloud
-  - links
-
-# Search
-search:
-  insight: true
-  swiftype: false
-  baidu: false
-
-# Comment
-comment:
-  disqus: hexo-theme-hueman
-  duoshuo: false
-  youyan: false
-  facebook: false
-  isso:
-    on: false
-    site: false
-    lang: false
-    reply-to-self: false
-    require-author: false
-    require-email: false
-    max-comments-top: false
-    max-comments-nested: false
-    reveal-on-click: false
-    avatar: false
-    avatar-bg: false
-    avatar-fg: false
-    vote: false
-    vote-levels: false
-  changyan:
-    appId: false
-    appKey: false
-    on: false
-  valine:
-    on: false
-    appId: false
-    appKey: false
-    notify: false
-    verify: false
-    placeholder: false
-    avatar: false
-    avatar_cdn: false
-    pageSize: false
-    visitor: false
-    recordip: false
-  gitalk:
-    on: false
-    owner: false
-    repo: false
-    client_id: false
-    client_secret: false
-    admin: false
-
-# Share
-share: default
-
-# Plugins
-plugins:
-  lightgallery: true
-  justifiedgallery: true
-  google_analytics: false
-  google_adsense:
-    publisher_id: false
-    ad_slot: false
-  baidu_analytics: false
-  bing_site_verification: false
-  statcounter:
-    sc_project: false
-    sc_invisible: false
-    sc_security: false
-    public: false
-    on: false
-  mathjax: false
-  counter: false
-  cookie_consent: false
-  twitter_conversion_tracking:
-    enabled: false
-    pixel_id: ''
-
-# Miscellaneous
-miscellaneous:
-  open_graph:
-    fb_app_id: false
-    fb_admins: false
-    twitter_id: false
-  links:
-    Hexo: http://hexo.io
-
-poweredby: true
