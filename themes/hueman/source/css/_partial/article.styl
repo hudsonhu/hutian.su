@@ -257,6 +257,42 @@
         text-decoration: none
         text-shadow: 0 1px darken(color-theme, 20%)
 
+.article-entry
+    a.hover-note
+        text-decoration: underline
+        text-decoration-style: dotted
+        text-underline-offset: 0.2em
+
+.hover-note-tooltip
+    position: fixed
+    left: 0
+    top: 0
+    width: 420px
+    max-width: 420px
+    padding: 10px 12px
+    line-height: 1.5
+    font-size: 14px
+    color: #fff
+    border-radius: 8px
+    background: rgba(39, 39, 46, 0.96)
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18)
+    opacity: 0
+    visibility: hidden
+    transform: translateY(-6px)
+    transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s ease
+    pointer-events: none
+    z-index: 9999
+    white-space: normal
+
+.hover-note-tooltip.is-visible
+    opacity: 1
+    visibility: visible
+    transform: translateY(0)
+
+@media (hover: none)
+    .hover-note-tooltip
+        display: none !important
+
 .article-footer
     clearfix()
     font-size: font-size

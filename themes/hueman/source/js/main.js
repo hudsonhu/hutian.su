@@ -133,4 +133,74 @@
         }
     });
 
+    // Hover note tooltip for custom post links
+    var hoverNoteTooltip = $('<div class="hover-note-tooltip" aria-hidden="true"></div>').appendTo('body');
+    var activeHoverNote = null;
+
+    function positionHoverNote($link) {
+        if (!$link || !$link.length) return;
+
+        var rect = $link[0].getBoundingClientRect();
+        var viewportWidth = window.innerWidth || document.documentElement.clientWidth;
+        var viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+        var gap = 10;
+        var margin = 16;
+
+        hoverNoteTooltip.css('max-width', Math.max(180, viewportWidth - margin * 2) + 'px');
+
+        var tooltipWidth = hoverNoteTooltip.outerWidth();
+        var tooltipHeight = hoverNoteTooltip.outerHeight();
+
+        var left = rect.left;
+        if (left + tooltipWidth > viewportWidth - margin) {
+            left = viewportWidth - margin - tooltipWidth;
+        }
+        if (left < margin) {
+            left = margin;
+        }
+
+        var top = rect.bottom + gap;
+        if (top + tooltipHeight > viewportHeight - margin) {
+            top = rect.top - tooltipHeight - gap;
+        }
+        if (top < margin) {
+            top = margin;
+        }
+
+        hoverNoteTooltip.css({
+            left: Math.round(left) + 'px',
+            top: Math.round(top) + 'px'
+        });
+    }
+
+    function showHoverNote($link) {
+        if (window.matchMedia && window.matchMedia('(hover: none)').matches) return;
+
+        var text = $link.attr('data-note');
+        if (!text) return;
+
+        activeHoverNote = $link;
+        hoverNoteTooltip.text(text).addClass('is-visible');
+        positionHoverNote($link);
+    }
+
+    function hideHoverNote() {
+        activeHoverNote = null;
+        hoverNoteTooltip.removeClass('is-visible');
+    }
+
+    $(document).on('mouseenter focus', '.article-entry a.hover-note', function () {
+        showHoverNote($(this));
+    });
+
+    $(document).on('mouseleave blur', '.article-entry a.hover-note', function () {
+        hideHoverNote();
+    });
+
+    $(window).on('resize scroll', function () {
+        if (activeHoverNote) {
+            positionHoverNote(activeHoverNote);
+        }
+    });
+
 })(jQuery);
