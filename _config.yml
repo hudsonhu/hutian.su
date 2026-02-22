@@ -3,7 +3,7 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: hutian.su
+title: Tiansu's Blog
 subtitle: ''
 description: ''
 keywords:
@@ -13,7 +13,7 @@ timezone: ''
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: https://hutian.su
+url: https://blog.tiansu.hu
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
